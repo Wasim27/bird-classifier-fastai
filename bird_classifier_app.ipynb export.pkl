@@ -1,0 +1,721 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "bird-classifier-app.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyO/NM7Yo70mnjmveHehUKtJ",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    },
+    "accelerator": "GPU",
+    "widgets": {
+      "application/vnd.jupyter.widget-state+json": {
+        "b4fa5706e4ca4230b4c628b955c9d313": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "VBoxModel",
+          "model_module_version": "1.5.0",
+          "state": {
+            "_view_name": "VBoxView",
+            "_dom_classes": [],
+            "_model_name": "VBoxModel",
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "box_style": "",
+            "layout": "IPY_MODEL_b6ea5a139c404ac89f91c281aacc382a",
+            "_model_module": "@jupyter-widgets/controls",
+            "children": [
+              "IPY_MODEL_04a2b34232d1431e988734923e18db3a",
+              "IPY_MODEL_6de3848128e042328c91e45f532964f4",
+              "IPY_MODEL_10ae9213db9e400b859ec1d4f39113e6",
+              "IPY_MODEL_d54d74c3b21f4b99a1bd0b57145464b8"
+            ]
+          }
+        },
+        "b6ea5a139c404ac89f91c281aacc382a": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "model_module_version": "1.2.0",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "04a2b34232d1431e988734923e18db3a": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "LabelModel",
+          "model_module_version": "1.5.0",
+          "state": {
+            "_view_name": "LabelView",
+            "style": "IPY_MODEL_06dba786b2be4b0790b01145844e3aeb",
+            "_dom_classes": [],
+            "description": "",
+            "_model_name": "LabelModel",
+            "placeholder": "​",
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "value": "Select your bird!",
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "description_tooltip": null,
+            "_model_module": "@jupyter-widgets/controls",
+            "layout": "IPY_MODEL_d0d73896abd04ca5a3e8336248a6eb1d"
+          }
+        },
+        "6de3848128e042328c91e45f532964f4": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "FileUploadModel",
+          "model_module_version": "1.5.0",
+          "state": {
+            "_view_name": "FileUploadView",
+            "_counter": 0,
+            "style": "IPY_MODEL_97cdf1d870384c07bc91fb52e33708ac",
+            "_dom_classes": [],
+            "description": "Upload",
+            "multiple": false,
+            "_model_name": "FileUploadModel",
+            "data": [],
+            "button_style": "",
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "accept": "",
+            "_view_count": null,
+            "disabled": false,
+            "_view_module_version": "1.5.0",
+            "error": "",
+            "description_tooltip": null,
+            "metadata": [],
+            "_model_module": "@jupyter-widgets/controls",
+            "layout": "IPY_MODEL_42dee7343aa24b11a3e4e7dbfb9c9e8e",
+            "icon": "upload"
+          }
+        },
+        "10ae9213db9e400b859ec1d4f39113e6": {
+          "model_module": "@jupyter-widgets/output",
+          "model_name": "OutputModel",
+          "model_module_version": "1.0.0",
+          "state": {
+            "_view_name": "OutputView",
+            "msg_id": "",
+            "_dom_classes": [],
+            "_model_name": "OutputModel",
+            "outputs": [],
+            "_view_module": "@jupyter-widgets/output",
+            "_model_module_version": "1.0.0",
+            "_view_count": null,
+            "_view_module_version": "1.0.0",
+            "layout": "IPY_MODEL_e7c5dcf1e62f4568aec1e2cd67085ad0",
+            "_model_module": "@jupyter-widgets/output"
+          }
+        },
+        "d54d74c3b21f4b99a1bd0b57145464b8": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "LabelModel",
+          "model_module_version": "1.5.0",
+          "state": {
+            "_view_name": "LabelView",
+            "style": "IPY_MODEL_72a6dedddd15415bb9eb2968e7f402de",
+            "_dom_classes": [],
+            "description": "",
+            "_model_name": "LabelModel",
+            "placeholder": "​",
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "value": "",
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "description_tooltip": null,
+            "_model_module": "@jupyter-widgets/controls",
+            "layout": "IPY_MODEL_3aabe0f1bef1460aa5d1f82d940996e0"
+          }
+        },
+        "06dba786b2be4b0790b01145844e3aeb": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "DescriptionStyleModel",
+          "model_module_version": "1.5.0",
+          "state": {
+            "_view_name": "StyleView",
+            "_model_name": "DescriptionStyleModel",
+            "description_width": "",
+            "_view_module": "@jupyter-widgets/base",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.2.0",
+            "_model_module": "@jupyter-widgets/controls"
+          }
+        },
+        "d0d73896abd04ca5a3e8336248a6eb1d": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "model_module_version": "1.2.0",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "97cdf1d870384c07bc91fb52e33708ac": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "ButtonStyleModel",
+          "model_module_version": "1.5.0",
+          "state": {
+            "_view_name": "StyleView",
+            "_model_name": "ButtonStyleModel",
+            "_view_module": "@jupyter-widgets/base",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "button_color": null,
+            "font_weight": "",
+            "_view_module_version": "1.2.0",
+            "_model_module": "@jupyter-widgets/controls"
+          }
+        },
+        "42dee7343aa24b11a3e4e7dbfb9c9e8e": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "model_module_version": "1.2.0",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "72a6dedddd15415bb9eb2968e7f402de": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "DescriptionStyleModel",
+          "model_module_version": "1.5.0",
+          "state": {
+            "_view_name": "StyleView",
+            "_model_name": "DescriptionStyleModel",
+            "description_width": "",
+            "_view_module": "@jupyter-widgets/base",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.2.0",
+            "_model_module": "@jupyter-widgets/controls"
+          }
+        },
+        "3aabe0f1bef1460aa5d1f82d940996e0": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "model_module_version": "1.2.0",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "e7c5dcf1e62f4568aec1e2cd67085ad0": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "model_module_version": "1.2.0",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        }
+      }
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Wasim27/bird-classifier-fastai/blob/main/bird_classifier_app.ipynb%20export.pkl\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "qIEe1M7OIhpV",
+        "outputId": "d2fee05c-215a-4deb-f785-371c8a2a5d16"
+      },
+      "source": [
+        "!pip install -Uqq fastbook\n",
+        "import fastbook\n",
+        "fastbook.setup_book()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[K     |████████████████████████████████| 720 kB 13.6 MB/s \n",
+            "\u001b[K     |████████████████████████████████| 1.2 MB 40.4 MB/s \n",
+            "\u001b[K     |████████████████████████████████| 46 kB 4.5 MB/s \n",
+            "\u001b[K     |████████████████████████████████| 189 kB 49.4 MB/s \n",
+            "\u001b[K     |████████████████████████████████| 56 kB 5.0 MB/s \n",
+            "\u001b[K     |████████████████████████████████| 51 kB 356 kB/s \n",
+            "\u001b[?25hMounted at /content/gdrive\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "JoVderDwI7In"
+      },
+      "source": [
+        "from fastbook import *\n",
+        "from fastai.vision.widgets import *"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 1000
+        },
+        "id": "iQX7_BUXOilY",
+        "outputId": "760a1224-57ba-403d-b70a-1a9a4b39c12d"
+      },
+      "source": [
+        "!pip install voila\n",
+        "!jupyter serverextension enable --sys-prefix voila"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting voila\n",
+            "  Downloading voila-0.2.16-py3-none-any.whl (1.6 MB)\n",
+            "\u001b[K     |████████████████████████████████| 1.6 MB 14.0 MB/s \n",
+            "\u001b[?25hCollecting jupyter-server<2.0.0,>=0.3.0\n",
+            "  Downloading jupyter_server-1.11.2-py3-none-any.whl (394 kB)\n",
+            "\u001b[K     |████████████████████████████████| 394 kB 22.0 MB/s \n",
+            "\u001b[?25hCollecting jupyter-client<7,>=6.1.3\n",
+            "  Downloading jupyter_client-6.1.12-py3-none-any.whl (112 kB)\n",
+            "\u001b[K     |████████████████████████████████| 112 kB 49.5 MB/s \n",
+            "\u001b[?25hCollecting nbconvert<7,>=6.0.0\n",
+            "  Downloading nbconvert-6.3.0-py3-none-any.whl (556 kB)\n",
+            "\u001b[K     |████████████████████████████████| 556 kB 49.8 MB/s \n",
+            "\u001b[?25hRequirement already satisfied: nbclient<0.6,>=0.4.0 in /usr/local/lib/python3.7/dist-packages (from voila) (0.5.5)\n",
+            "Requirement already satisfied: jupyter-core>=4.6.0 in /usr/local/lib/python3.7/dist-packages (from jupyter-client<7,>=6.1.3->voila) (4.9.1)\n",
+            "Requirement already satisfied: python-dateutil>=2.1 in /usr/local/lib/python3.7/dist-packages (from jupyter-client<7,>=6.1.3->voila) (2.8.2)\n",
+            "Requirement already satisfied: pyzmq>=13 in /usr/local/lib/python3.7/dist-packages (from jupyter-client<7,>=6.1.3->voila) (22.3.0)\n",
+            "Requirement already satisfied: traitlets in /usr/local/lib/python3.7/dist-packages (from jupyter-client<7,>=6.1.3->voila) (5.1.1)\n",
+            "Requirement already satisfied: tornado>=4.1 in /usr/local/lib/python3.7/dist-packages (from jupyter-client<7,>=6.1.3->voila) (5.1.1)\n",
+            "Requirement already satisfied: Send2Trash in /usr/local/lib/python3.7/dist-packages (from jupyter-server<2.0.0,>=0.3.0->voila) (1.8.0)\n",
+            "Collecting websocket-client\n",
+            "  Downloading websocket_client-1.2.1-py2.py3-none-any.whl (52 kB)\n",
+            "\u001b[K     |████████████████████████████████| 52 kB 1.5 MB/s \n",
+            "\u001b[?25hRequirement already satisfied: terminado>=0.8.3 in /usr/local/lib/python3.7/dist-packages (from jupyter-server<2.0.0,>=0.3.0->voila) (0.12.1)\n",
+            "Collecting tornado>=4.1\n",
+            "  Downloading tornado-6.1-cp37-cp37m-manylinux2010_x86_64.whl (428 kB)\n",
+            "\u001b[K     |████████████████████████████████| 428 kB 53.2 MB/s \n",
+            "\u001b[?25hRequirement already satisfied: argon2-cffi in /usr/local/lib/python3.7/dist-packages (from jupyter-server<2.0.0,>=0.3.0->voila) (21.1.0)\n",
+            "Requirement already satisfied: nbformat in /usr/local/lib/python3.7/dist-packages (from jupyter-server<2.0.0,>=0.3.0->voila) (5.1.3)\n",
+            "Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.7/dist-packages (from jupyter-server<2.0.0,>=0.3.0->voila) (0.2.0)\n",
+            "Requirement already satisfied: jinja2 in /usr/local/lib/python3.7/dist-packages (from jupyter-server<2.0.0,>=0.3.0->voila) (2.11.3)\n",
+            "Requirement already satisfied: prometheus-client in /usr/local/lib/python3.7/dist-packages (from jupyter-server<2.0.0,>=0.3.0->voila) (0.12.0)\n",
+            "Collecting anyio<4,>=3.1.0\n",
+            "  Downloading anyio-3.3.4-py3-none-any.whl (78 kB)\n",
+            "\u001b[K     |████████████████████████████████| 78 kB 6.5 MB/s \n",
+            "\u001b[?25hRequirement already satisfied: typing-extensions in /usr/local/lib/python3.7/dist-packages (from anyio<4,>=3.1.0->jupyter-server<2.0.0,>=0.3.0->voila) (3.10.0.2)\n",
+            "Collecting sniffio>=1.1\n",
+            "  Downloading sniffio-1.2.0-py3-none-any.whl (10 kB)\n",
+            "Requirement already satisfied: idna>=2.8 in /usr/local/lib/python3.7/dist-packages (from anyio<4,>=3.1.0->jupyter-server<2.0.0,>=0.3.0->voila) (2.10)\n",
+            "Requirement already satisfied: nest-asyncio in /usr/local/lib/python3.7/dist-packages (from nbclient<0.6,>=0.4.0->voila) (1.5.1)\n",
+            "Requirement already satisfied: mistune<2,>=0.8.1 in /usr/local/lib/python3.7/dist-packages (from nbconvert<7,>=6.0.0->voila) (0.8.4)\n",
+            "Requirement already satisfied: jupyterlab-pygments in /usr/local/lib/python3.7/dist-packages (from nbconvert<7,>=6.0.0->voila) (0.1.2)\n",
+            "Requirement already satisfied: entrypoints>=0.2.2 in /usr/local/lib/python3.7/dist-packages (from nbconvert<7,>=6.0.0->voila) (0.3)\n",
+            "Requirement already satisfied: pygments>=2.4.1 in /usr/local/lib/python3.7/dist-packages (from nbconvert<7,>=6.0.0->voila) (2.6.1)\n",
+            "Requirement already satisfied: pandocfilters>=1.4.1 in /usr/local/lib/python3.7/dist-packages (from nbconvert<7,>=6.0.0->voila) (1.5.0)\n",
+            "Requirement already satisfied: defusedxml in /usr/local/lib/python3.7/dist-packages (from nbconvert<7,>=6.0.0->voila) (0.7.1)\n",
+            "Requirement already satisfied: bleach in /usr/local/lib/python3.7/dist-packages (from nbconvert<7,>=6.0.0->voila) (4.1.0)\n",
+            "Requirement already satisfied: testpath in /usr/local/lib/python3.7/dist-packages (from nbconvert<7,>=6.0.0->voila) (0.5.0)\n",
+            "Requirement already satisfied: MarkupSafe>=0.23 in /usr/local/lib/python3.7/dist-packages (from jinja2->jupyter-server<2.0.0,>=0.3.0->voila) (2.0.1)\n",
+            "Requirement already satisfied: jsonschema!=2.5.0,>=2.4 in /usr/local/lib/python3.7/dist-packages (from nbformat->jupyter-server<2.0.0,>=0.3.0->voila) (2.6.0)\n",
+            "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil>=2.1->jupyter-client<7,>=6.1.3->voila) (1.15.0)\n",
+            "Requirement already satisfied: ptyprocess in /usr/local/lib/python3.7/dist-packages (from terminado>=0.8.3->jupyter-server<2.0.0,>=0.3.0->voila) (0.7.0)\n",
+            "Requirement already satisfied: cffi>=1.0.0 in /usr/local/lib/python3.7/dist-packages (from argon2-cffi->jupyter-server<2.0.0,>=0.3.0->voila) (1.15.0)\n",
+            "Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi>=1.0.0->argon2-cffi->jupyter-server<2.0.0,>=0.3.0->voila) (2.21)\n",
+            "Requirement already satisfied: packaging in /usr/local/lib/python3.7/dist-packages (from bleach->nbconvert<7,>=6.0.0->voila) (21.2)\n",
+            "Requirement already satisfied: webencodings in /usr/local/lib/python3.7/dist-packages (from bleach->nbconvert<7,>=6.0.0->voila) (0.5.1)\n",
+            "Requirement already satisfied: pyparsing<3,>=2.0.2 in /usr/local/lib/python3.7/dist-packages (from packaging->bleach->nbconvert<7,>=6.0.0->voila) (2.4.7)\n",
+            "Installing collected packages: tornado, jupyter-client, sniffio, websocket-client, nbconvert, anyio, jupyter-server, voila\n",
+            "  Attempting uninstall: tornado\n",
+            "    Found existing installation: tornado 5.1.1\n",
+            "    Uninstalling tornado-5.1.1:\n",
+            "      Successfully uninstalled tornado-5.1.1\n",
+            "  Attempting uninstall: jupyter-client\n",
+            "    Found existing installation: jupyter-client 5.3.5\n",
+            "    Uninstalling jupyter-client-5.3.5:\n",
+            "      Successfully uninstalled jupyter-client-5.3.5\n",
+            "  Attempting uninstall: nbconvert\n",
+            "    Found existing installation: nbconvert 5.6.1\n",
+            "    Uninstalling nbconvert-5.6.1:\n",
+            "      Successfully uninstalled nbconvert-5.6.1\n",
+            "\u001b[31mERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n",
+            "nbdev 1.1.23 requires nbconvert<6, but you have nbconvert 6.3.0 which is incompatible.\n",
+            "google-colab 1.0.0 requires tornado~=5.1.0; python_version >= \"3.0\", but you have tornado 6.1 which is incompatible.\u001b[0m\n",
+            "Successfully installed anyio-3.3.4 jupyter-client-6.1.12 jupyter-server-1.11.2 nbconvert-6.3.0 sniffio-1.2.0 tornado-6.1 voila-0.2.16 websocket-client-1.2.1\n"
+          ]
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+            "application/vnd.colab-display-data+json": {
+              "pip_warning": {
+                "packages": [
+                  "jupyter_client",
+                  "nbconvert",
+                  "tornado"
+                ]
+              }
+            }
+          },
+          "metadata": {}
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enabling: voila\n",
+            "- Writing config: /usr/etc/jupyter\n",
+            "    - Validating...\n",
+            "Error loading server extension voila\n",
+            "     \u001b[31m X\u001b[0m is voila importable?\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "xUiw6LTLLYzX"
+      },
+      "source": [
+        "path = Path()\n",
+        "learn_inf = load_learner(path/'export.pkl', cpu=True)\n",
+        "btn_upload = widgets.FileUpload()\n",
+        "out_pl = widgets.Output()\n",
+        "lbl_pred = widgets.Label()"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "hhfonM4vLztU"
+      },
+      "source": [
+        "def on_data_change(change):\n",
+        "    lbl_pred.value = ''\n",
+        "    img = PILImage.create(btn_upload.data[-1])\n",
+        "    out_pl.clear_output()\n",
+        "    with out_pl: display(img.to_thumb(128,128))\n",
+        "    pred,pred_idx,probs = learn_inf.predict(img)\n",
+        "    lbl_pred.value = f'Prediction: {pred}; Probability: {probs[pred_idx]:.04f}'"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "7s33_a61e7g6"
+      },
+      "source": [
+        "btn_upload.observe(on_data_change, names=['data'])"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 113,
+          "referenced_widgets": [
+            "b4fa5706e4ca4230b4c628b955c9d313",
+            "b6ea5a139c404ac89f91c281aacc382a",
+            "04a2b34232d1431e988734923e18db3a",
+            "6de3848128e042328c91e45f532964f4",
+            "10ae9213db9e400b859ec1d4f39113e6",
+            "d54d74c3b21f4b99a1bd0b57145464b8",
+            "06dba786b2be4b0790b01145844e3aeb",
+            "d0d73896abd04ca5a3e8336248a6eb1d",
+            "97cdf1d870384c07bc91fb52e33708ac",
+            "42dee7343aa24b11a3e4e7dbfb9c9e8e",
+            "72a6dedddd15415bb9eb2968e7f402de",
+            "3aabe0f1bef1460aa5d1f82d940996e0",
+            "e7c5dcf1e62f4568aec1e2cd67085ad0"
+          ]
+        },
+        "id": "deMBqmEnfAZK",
+        "outputId": "3c1158bb-7fc3-4a00-f6be-2c36c9932624"
+      },
+      "source": [
+        "#hide_output\n",
+        "VBox([widgets.Label('Select your bird!'),\n",
+        "      btn_upload, out_pl, lbl_pred])"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "application/vnd.jupyter.widget-view+json": {
+              "model_id": "b4fa5706e4ca4230b4c628b955c9d313",
+              "version_minor": 0,
+              "version_major": 2
+            },
+            "text/plain": [
+              "VBox(children=(Label(value='Select your bird!'), FileUpload(value={}, description='Upload'), Output(), Label(v…"
+            ]
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ZkV-qEghfC0w"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
